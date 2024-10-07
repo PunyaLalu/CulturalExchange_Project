@@ -1,0 +1,47 @@
+{% extends 'common.html' %}
+{% load static %}
+{% for m in messages %}
+<script>
+    alert("{{m}}")
+</script>
+{% endfor %}
+{% block content %}
+
+  <div class="hero hero-inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mx-auto text-center">
+          <div class="intro-wrap">
+            <h1 class="mb-0">Login</h1>
+            <p class="text-white"><a href="/" style="color: white;">Home</a>/Login</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="untree_co-section">
+    <div class="container">
+      <h1 class="mb-0" style="margin-left: 400px;">Login</h1><br>
+      <div class="row" style="margin-left: 330px;">
+        <div class="col-lg-7 mb-5 mb-lg-0">
+            <form method="POST" enctype="multipart/form-data" class="contact-form" id="contactForm" novalidate="novalidate">
+                {% csrf_token %}
+              <div class="form-group">
+                <label class="text-black" for="email">Email</label>
+                <input type="email" name="email2" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" placeholder="Enter Email" required>
+              </div>
+              <div class="form-group">
+                <label class="text-black" for="lname">Password</label>
+                <input type="password" name="password2" class="form-control" id="lname"  minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" required>
+              </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+
+
+
+  

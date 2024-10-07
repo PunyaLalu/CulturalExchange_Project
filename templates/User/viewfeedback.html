@@ -1,0 +1,62 @@
+{% extends 'User/common_us.html' %}
+{% load static %}
+{% for m in messages %}
+<script>
+    alert("{{m}}")
+</script>
+{% endfor %}
+{% block content %}
+
+  <div class="hero hero-inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto text-center">
+          <div class="intro-wrap">
+            <h1 class="mb-0">View Feedback Reply</h1>
+            <p class="text-white"><a href="/userhome" style="color: white;">Home</a>/View Feedback Reply</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="untree_co-section">
+    <div class="container">
+      <h1 class="mb-0" style="margin-left: 400px;">View Feedback Reply</h1><br>
+      <div class="row">
+        <div class="col-lg-12 mb-5 mb-lg-0">
+            <table class="table table-hover" cellspacing="2" cellpadding="2">
+                <thread>
+                  <tr class="table-info">
+                      <th scope="col">Username</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Article</th>
+                      <th scope="col">Message</th>
+                      <th scope="col">Reply</th>
+                      <!-- <th scope="col">Chat</th> -->
+                  </tr>   
+                  {% for i in data %}
+                </thread>
+                <tbody>
+                  <tr>
+                      <td>{{i.ambassador.Username}}</td>
+                      <td>{{i.ambassador.Email}}</td>
+                      <td> {{i.article.name}}<br><img src="/static/media/{{i.article.image}}" style="width: 100px;">
+                     </td>
+                      <td>{{i.message}}</td>
+                      
+                    <td>{{i.reply}}</td>
+                    <!-- <td><a href="/chat_u?id={{i.ambassador.id}}" class="btn btn-danger">Chat</a></td> -->
+                      
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table> 
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+
+
+
+  

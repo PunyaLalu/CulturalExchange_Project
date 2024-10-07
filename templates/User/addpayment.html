@@ -1,0 +1,83 @@
+{% extends 'User/common_us.html' %}
+{% load static %}
+{% for m in messages %}
+<script>
+    alert("{{m}}")
+</script>
+{% endfor %}
+{% block content %}
+
+  <div class="hero hero-inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mx-auto text-center">
+          <div class="intro-wrap">
+            <h1 class="mb-0">Payment</h1>
+            <p class="text-white"><a href="/userhome" style="color: white;">Home</a>/Payment</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="untree_co-section">
+    <div class="container">
+      <h1 class="mb-0" style="margin-left: 400px;">Payment</h1><br>
+      <div class="row" style="margin-left: 300px;">
+        <div class="col-lg-8 mb-5 mb-lg-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="card p-3">
+                            <div class="card-body border p-0">
+                                <div class="collapse show p-3 pt-0" id="collapseExample">
+                                        <div class="col-lg-12">
+                                            <form method="POST" enctype="multipart/form-data" class="contact-form" id="contactForm" novalidate="novalidate">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form__div">
+                                                            <label for="" class="form__label">Cardname</label>
+                                                            <input type="text" class="form-control" placeholder=" ">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form__div">
+                                                            <label for="" class="form__label">Card Number</label>
+                                                            <input type="text" class="form-control" maxlength="16" placeholder=" "> 
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form__div">
+                                                            <label for="" class="form__label">MM / yy</label>
+                                                            <input type="text" class="form-control" pattern="[02/24]" placeholder=" ">
+                                                        </div>
+                                                    </div>
+        
+                                                    <div class="col-6">
+                                                        <div class="form__div">
+                                                            <label for="" class="form__label">cvv code</label>
+                                                            <input type="password" maxlength="3" class="form-control" pattern="***" placeholder=" ">
+                                                        </div><br>
+                                                    </div><br>
+                                                    <div class="col-6">
+                                                        <button type="submit" class="btn btn-primary">Pay</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+      </div>
+  </div>
+  {% endblock %}
+
+
+
+  

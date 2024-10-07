@@ -1,0 +1,103 @@
+{% extends 'User/common_us.html' %}
+{% load static %}
+{% for m in messages %}
+<script>
+    alert("{{m}}")
+</script>
+{% endfor %}
+{% block content %}
+
+  <div class="hero hero-inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mx-auto text-center">
+          <div class="intro-wrap">
+            <h1 class="mb-0">View Events</h1>
+            <p class="text-white"><a href="/userhome" style="color: white;">Home</a>/View Events</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="untree_co-section">
+    <div class="container">
+      <h1 class="mb-0" style="margin-left: 400px;">View Events</h1><br>
+      <div class="row">
+        <div class="col-md-12">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+
+<br>
+<br>
+<div class="row">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+
+      {% if msg %}
+          <div class="alert alert-success">
+              {{ msg }}
+          </div>
+      {% endif %}
+
+      <!-- Search box -->
+      <div class="mb-3">
+          <input type="text" class="form-control" id="bookSearch" placeholder="Search by Eventname">
+      </div>
+
+  </div>
+</div>
+<br>
+
+<div class="section">
+<div class="container-fluid">
+<div class="row">
+
+    <!-- Book cards -->
+    {% for i in data %}
+        <div class="col-6 book-card" data-book-name="{{ i.name }}">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <img src="/static/media/{{i.image}}" class="img-fluid rounded-start" alt="image" height="450" width="450">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ i.name }}</h5>
+                            <p class="card-text">{{ i.des }}</p>
+                            <p class="card-text"><small>Dates:{{ i.date }}</small></p>
+                            <p class="card-text"><small>{{ i.dis }}</small></p>
+                            <a href="/bookevent?id={{i.id}}"><button type="button" class="btn btn-outline-danger">Book</button></a><br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+  </div>
+  <script>
+    // JavaScript for filtering books by name
+    document.getElementById('bookSearch').addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+    const bookCards = document.querySelectorAll('.book-card');
+    
+    bookCards.forEach(function (card) {
+        const bookName = card.getAttribute('data-book-name').toLowerCase();
+        const isMatch = bookName.includes(searchValue);
+    
+        // Show or hide the card based on the search result
+        card.style.display = isMatch ? 'block' : 'none';
+    });
+    });
+    </script> 
+  {% endblock %}
+
+
+
+  

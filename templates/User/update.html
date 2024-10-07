@@ -1,0 +1,61 @@
+{% extends 'User/common_us.html' %}
+{% load static %}
+{% for m in messages %}
+<script>
+    alert("{{m}}")
+</script>
+{% endfor %}
+{% block content %}
+
+  <div class="hero hero-inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mx-auto text-center">
+          <div class="intro-wrap">
+            <h1 class="mb-0">Update Articles</h1>
+            <p class="text-white"><a href="/userhome" style="color: white;">Home</a>/Update Articles</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="untree_co-section">
+    <div class="container">
+      <h1 class="mb-0" style="margin-left: 400px;">Update Articles</h1><br>
+      <div class="row" style="margin-left: 280px;">
+        <div class="col-lg-8 mb-5 mb-lg-0">
+            {% for i in data %}
+          <form method="POST" enctype="multipart/form-data" class="contact-form" id="contactForm" novalidate="novalidate">
+            {% csrf_token %}
+              <div class="form-group">
+                <label class="text-black" for="fname">Name</label>
+                <input type="text" name="name1" class="form-control" value="{{i.name}}" id="fname" placeholder="Enter Name">
+              </div>
+              <div class="form-group">
+                <label class="text-black" for="lname">Image</label>
+                <input type="file" name="image1" class="form-control" value="{{i.image}}" id="lname" required>
+              </div>
+              <div class="form-group">
+                <label class="text-black" for="message">Description</label>
+                <textarea name="des1" class="form-control" id="message" value="{{i.des}}" cols="10" rows="5" placeholder="Enter Description" required></textarea>
+              </div>
+              <!-- <div class="form-group">
+                <label class="text-black" for="email">Dates(start-end)</label>
+                <input type="text" name="date" class="form-control" id="email" required>
+              </div> -->
+              <!-- <div class="form-group">
+                <label class="text-black" for="message">District</label>
+                <input type="text" name="dis" class="form-control" id="email" required>
+              </div> -->
+            <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+
+
+
+  

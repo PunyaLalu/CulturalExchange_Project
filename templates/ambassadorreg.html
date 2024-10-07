@@ -1,0 +1,63 @@
+{% extends 'common.html' %}
+{% load static %}
+{% for m in messages %}
+<script>
+    alert("{{m}}")
+</script>
+{% endfor %}
+{% block content %}
+
+  <div class="hero hero-inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto text-center">
+          <div class="intro-wrap">
+            <h1 class="mb-0">Ambassador Registration</h1>
+            <p class="text-white"><a href="/" style="color: white;">Home</a>/Ambassador Registration</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="untree_co-section">
+    <div class="container">
+      <h1 class="mb-0" style="margin-left: 330px;">Ambassador Registration</h1><br>
+      <div class="row" style="margin-left: 280px;">
+        <div class="col-lg-8 mb-5 mb-lg-0">
+          <form method="POST" enctype="multipart/form-data" class="contact-form" id="contactForm" novalidate="novalidate">
+            {% csrf_token %}
+              <div class="form-group">
+                <label class="text-black" for="fname">Username</label>
+                <input type="text" name="username1" class="form-control" id="fname" placeholder="Enter Username">
+              </div>
+              <div class="form-group">
+                <label class="text-black" for="email">Email address</label>
+                <input type="email" name="email1" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" placeholder="Enter Email" required>
+              </div>
+            <div class="form-group">
+                <label class="text-black" for="lname">Phonenumber</label>
+                <input type="tel" name="phoneno1" class="form-control" id="lname" maxlength="10" pattern="[6789][0-9]{9}" placeholder="Enter Phonenumber" required>
+              </div>
+              <div class="form-group">
+                <label class="text-black" for="lname">Password</label>
+                <input type="password" name="password1" class="form-control" id="lname"  minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" required>
+              </div>
+              <div class="form-group">
+                <label class="text-black" for="lname">Image</label>
+                <input type="file" name="image1" class="form-control" id="lname" required>
+              </div>
+            <div class="form-group">
+              <label class="text-black" for="message">Why should be approve?</label>
+              <textarea name="address1" class="form-control" id="message" cols="10" rows="3" placeholder="write here...."  required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+
+
+
+  
